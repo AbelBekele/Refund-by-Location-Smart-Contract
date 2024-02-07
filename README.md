@@ -18,12 +18,8 @@
 - [Description](#description)
 - [Links](#links)
 - [Tech Stack](#tech-stack)
-- [File Structure](#file-structure)
-- [Applications](#applications)
 - [Project Setup](#project-setup)
 - [Usage](#usage)
-- [Team Members](#team-members)
-- [Mentors](#mentors)
 
 </details>
 
