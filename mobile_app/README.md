@@ -1,4 +1,4 @@
-# driver
+# Courier mobile app
 
 A new Flutter project.
 
