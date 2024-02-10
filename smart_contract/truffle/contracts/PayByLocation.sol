@@ -3,7 +3,7 @@ pragma solidity >=0.4.22 <0.9.0;
 
 contract PayByLocation {
  
-        struct Employee {
+    struct Employee {
         string name;
         uint256 distance;
         uint256 registeredAt;
@@ -16,7 +16,11 @@ contract PayByLocation {
     
     mapping(address => Employee) public employees;
     mapping(uint => address) public employeesAddress;
-    uint employeeCount;
+    uint public employeeCount;
+
+    constructor() {
+        employeeCount = 0;
+    }
 
     function addEmployee(
         address _employeeAddress,
@@ -25,8 +29,8 @@ contract PayByLocation {
         uint256 _contractEnd,
         int256 _lat,
         int256 _lng
-    ) public  {
-        uint256 time = timeteller();
+    ) public {
+        uint256 time = block.timestamp;
         Employee memory employee = Employee(
             _name,
             _allowedDistance,
@@ -65,26 +69,30 @@ contract PayByLocation {
     
     }
     
-    function evaluate(int256 _lat, int256 _lng) public   {
-        //refrence distance is lat and lng from the constructors
+    function evaluate(int256 _lat, int256 _lng) public {
+        // Reference distance is lat and lng from the function parameters
         address empAddr = msg.sender;
-        Employee memory employee = employees[empAddr];
+        Employee storage employee = employees[empAddr];
         bool comply = isComplied(_lat, _lng, employee);
-        employee.comply = comply; 
         
-        if (comply && (timeteller() >= employee.contractEnd && !employee.paid)) {
-        
-            //pay the user
+        if (comply && block.timestamp >= employee.contractEnd && !employee.paid) {
+            // Reward the employee for compliance
             employee.paid = true;
-        
-        } else if (!comply && (timeteller() < employee.contractEnd)) {
-        
-            // refund employer
-
+            // You can define your reward mechanism here, for example, transferring tokens or ether
+            // For demonstration, let's assume rewarding with 1 ether
+            payable(empAddr).transfer(1 ether);
+        } else if (!comply && block.timestamp < employee.contractEnd) {
+            // Penalize the employee for non-compliance
+            // You can define your penalty mechanism here
+            // For demonstration, let's assume deducting 1 ether from the employee's balance
+            // Assuming the contract holds the balance of employees
+            // You would typically handle this with appropriate funds management in a real application
+            if (address(this).balance >= 1 ether) {
+                payable(empAddr).transfer(1 ether - 1 ether);
+            }
         }
 
         employees[empAddr] = employee;
-
     }
 
     function getDistance(
@@ -92,7 +100,7 @@ contract PayByLocation {
         int256 _lng,
         int256 _lat1,
         int256 _lng1
-    ) private pure returns (int256 ) {
+    ) private pure returns (int256) {
         int256 dist = sqrt(((_lat - _lat1)**2) + ((_lng - _lng1)**2));
         return dist;
         // return 6;
@@ -101,7 +109,7 @@ contract PayByLocation {
     function sqrt(int256 x) private pure returns (int256 y) {
         int256 z = (x + 1) / 2;
         y = x;
-        while (z <(y)) {
+        while (z < (y)) {
             y = z;
             z = (x / z + z) / 2;
         }
@@ -126,8 +134,4 @@ contract PayByLocation {
         return msg.sender;
     }
 
-    function timeteller() private view returns(uint){
-     return block.timestamp;
- }
-    
 }

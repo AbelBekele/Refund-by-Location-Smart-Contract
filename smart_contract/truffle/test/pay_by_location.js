@@ -13,7 +13,7 @@ contract("PayByLocation", function (/* accounts */) {
   // });
 
   it("should assert true", async function () {
-    let instance = await payByLocation.deployed();
+    let instance = await PayByLocation.deployed();
     console.log(await instance.getDistance(0,0,3,4))
     // console.log(await instance.sqrt(4)==2)
     return assert.isTrue(await instance.getDistance(0,0,3,4)==5);
