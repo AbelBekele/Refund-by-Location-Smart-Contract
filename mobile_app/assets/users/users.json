@@ -1,0 +1,14 @@
+[
+    {
+        "email": "user1@example.com",
+        "publicKey": "user1PublicKey"
+    },
+    {
+        "email": "user2@example.com",
+        "publicKey": "user2PublicKey"
+    },
+    {
+        "email": "user3@example.com",
+        "publicKey": "user3PublicKey"
+    }
+]

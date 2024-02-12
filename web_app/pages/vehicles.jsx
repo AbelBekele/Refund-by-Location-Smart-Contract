@@ -29,10 +29,23 @@ const Vehicles = () => {
         </p>
       </div>
 
-      {/* Button to toggle Add Employee component visibility */}
-      <button type="button" onClick={handleAdd_employeeClick}>
-        {showAdd_employee ? 'Hide Add Employee' : 'Show Add Employee'}
+      <button 
+        type="button" 
+        onClick={handleAdd_employeeClick} 
+        style={{
+          borderRadius: '30px', // Adjust border radius to create rounded corners
+          width: '200px', // Adjust width as needed
+          height: '50px', // Adjust height as needed
+          // Add any additional styling here if necessary
+          backgroundColor: 'rgba(56, 108, 226)', // Example background color
+          color: 'white', // Example text color
+          border: 'none', // Remove border
+          cursor: 'pointer', // Show pointer cursor on hover
+        }}
+      >
+        {showAdd_employee ? 'Add Employee' : 'Add Employee'}
       </button>
+
 
       {/* Render Add Employee component based on state */}
       {showAdd_employee && <Add_employee />}

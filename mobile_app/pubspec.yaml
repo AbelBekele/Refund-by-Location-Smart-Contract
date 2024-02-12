@@ -46,6 +46,7 @@ dependencies:
   permission_handler: ^11.0.1
   flutter_map: ^6.1.0
   url_launcher: ^6.2.4
+  flutter_svg: ^1.1.0
   
 
 dev_dependencies:
@@ -65,17 +66,20 @@ dev_dependencies:
 
 # The following section is specific to Flutter packages.
 flutter:
+  uses-material-design: true
 
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
   # the material Icons class.
-  uses-material-design: true
 
   # To add assets to your application, add an assets section, like this:
+    
+
   assets:
+    - assets/images/
+    - assets/icons/
+    - assets/users/users.json
     - truffle/build/contracts/PayByLocation.json 
-  # djfndj
-  #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
@@ -88,6 +92,11 @@ flutter:
   # "family" key with the font family name, and a "fonts" key with a
   # list giving the asset and other descriptors for the font. For
   # example:
+  fonts:
+    - family: Mulish
+      fonts:
+        - asset: assets/fonts/Mulish-Light.ttf
+        - asset: assets/fonts/Mulish-SemiBold.ttf
   # fonts:
   #   - family: Schyler
   #     fonts:

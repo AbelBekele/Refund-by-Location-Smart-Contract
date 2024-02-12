@@ -15,7 +15,7 @@ class ContractLogic extends GetxController {
   final String _rpcURL = "http://$ip:$port";
   final String _wsURL = "ws://$ip:$port/";
   final String _privateKey =
-      "0x83aa00528c567b94f51ddd0dc5b2d41181a5d564147e50853e6dc9a52c5192af";
+      "0x82552f5eC5A221d1aEb53cBB58B2c3A451440a3c";
 
   late Web3Client _client;
   late Credentials _credentials;
@@ -32,7 +32,7 @@ class ContractLogic extends GetxController {
     });
 
     final abiStringFile = await DefaultAssetBundle.of(context)
-        .loadString("truffle/build/contracts/PayByLocation.json");
+        .loadString("../../smart_contract/truffle/build/contracts/PayByLocation.json");
     final abiJson = jsonDecode(abiStringFile);
     final abi = jsonEncode(abiJson['abi']);
     final contractAddress =
