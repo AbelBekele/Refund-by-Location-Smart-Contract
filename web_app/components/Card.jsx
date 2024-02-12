@@ -9,9 +9,9 @@ const Card = ({ small, heading, joined, bg, icon }) => {
       <div className="z-20">
         <p className="uppercase">{small ?? 'registered customers'}</p>
         <h2 className="font-bold text-3xl my-3 text-gray-700 dark:text-white uppercase">
-          {heading ?? '380.2k'}
+          {heading ?? '6'}
         </h2>
-        <p className="capitalize">{joined ?? '3467 joined today'}</p>
+        <p className="capitalize">{joined ?? '2 joined today'}</p>
       </div>
 
       <div className="flex text-3xl text-white items-center justify-center z-10  absolute bottom-5 right-5">

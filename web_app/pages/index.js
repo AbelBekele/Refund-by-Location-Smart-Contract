@@ -32,7 +32,7 @@ export default function Home() {
     <section className="home">
       <div className="mt-10 mb-8 ">
         <h1 className="text-2xl md:text-3xl dark:text-white text-black font-bold">
-          Good Evening, Chioma.
+          Good Evening, Abel.
         </h1>
         <p className="text-gray-500 mt-3">
           Glad to have you back, heres an overview of your operation today
@@ -44,16 +44,16 @@ export default function Home() {
 
         <Card
           small="registered transporters"
-          heading="15.6m"
-          joined="3467 onboard today"
+          heading="4"
+          joined="2 onboard today"
           bg="bg-green-400"
           icon={<BsPeopleFill />}
         />
 
         <Card
           small="total shipments"
-          heading="348.9k"
-          joined="3467 shipped today"
+          heading="6"
+          joined="2 shipped today"
           bg="bg-pink-500"
           icon={<FaShip />}
         />
@@ -119,8 +119,8 @@ export default function Home() {
             }
           >
             <Analytics
-              shipment={60000}
-              activeVehicle={237889}
+              shipment={6}
+              activeVehicle={2}
               stats={monthData}
             />
           </div>
@@ -133,8 +133,8 @@ export default function Home() {
             }
           >
             <Analytics
-              shipment={23360000}
-              activeVehicle={4237889}
+              shipment={6}
+              activeVehicle={2}
               stats={yearData}
             />
           </div>
